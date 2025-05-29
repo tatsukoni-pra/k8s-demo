@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-app
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: argocd
+  source:
+    repoURL: https://github.com/tatsukoni-pra/k8s-demo
+    path: argocd
+    targetRevision: main

@@ -1,12 +1,12 @@
 apiVersion: elbv2.k8s.aws/v1beta1
 kind: TargetGroupBinding
 metadata:
-  name: test-nginx-tgb
+  name: argocd-server-tgb
 spec:
   serviceRef:
-    name: service-test-nginx
+    name: argocd-server
     port: 80
-  targetGroupARN: arn:aws:elasticloadbalancing:ap-northeast-1:083636136646:targetgroup/tg-nginx/a64b168434cf5f39
+  targetGroupARN: arn:aws:elasticloadbalancing:ap-northeast-1:083636136646:targetgroup/tg-argocd/0805cd9fc4783664
   targetType: ip
   networking:
     ingress:

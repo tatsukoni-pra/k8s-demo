@@ -1,0 +1,19 @@
+global:
+  image:
+    repository: "quay.io/argoproj/argocd"
+    tag: "v3.0.4"
+  tolerations:
+    - key: arch/arm64
+      operator: "Exists"
+      effect: "NoSchedule"
+  nodeSelector:
+    kubernetes.io/arch: arm64
+
+configs:
+  cm:
+    url: 'https://argocd-demo.awsometatsukoni.com'
+    timeout.reconciliation: 30s
+    admin.enable: true
+    exec.enabled: true
+  params:
+    server.insecure: true
