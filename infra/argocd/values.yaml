@@ -13,7 +13,6 @@ configs:
   cm:
     url: 'https://argocd-demo.awsometatsukoni.com'
     timeout.reconciliation: 30s
-    admin.enable: true
     exec.enabled: true
   params:
     server.insecure: true
