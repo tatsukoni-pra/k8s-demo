@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-secrets-operator
+spec:
+  project: external-secrets
+  sources:
+  - repoURL: 'https://charts.external-secrets.io'
+    chart: external-secrets
+    targetRevision: 0.17.0
+    helm:
+      parameters:
+        - name: installCRDs
+          value: "true"
+        - name: webhook.port
+          value: "9443"
+  - repoURL: 'https://github.com/tatsukoni-pra/k8s-demo'
+    path: infra/external-secrets
+    targetRevision: main
+  destination:
+    namespace: external-secrets
+    server: https://kubernetes.default.svc
