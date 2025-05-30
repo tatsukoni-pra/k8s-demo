@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
   - namespace.yaml
-  - tagret_group_binding.yaml
+  - target_group_binding.yaml
