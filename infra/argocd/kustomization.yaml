@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - target_group_binding.yaml
+  # - secrets.yaml
