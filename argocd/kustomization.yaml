@@ -4,6 +4,6 @@ kind: Kustomization
 resources:
   - argocd
   - argocd-app
-  # - external-secrets
+  - external-secrets
 
 namespace: argocd
