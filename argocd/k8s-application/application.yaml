@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8s-application
+spec:
+  destination:
+    namespace: "*"
+    server: https://kubernetes.default.svc
+  project: k8s-application
+  sources:
+    repoURL: https://github.com/tatsukoni-pra/k8s-application-demo
+    path: k8s/resources
+    targetRevision: main
