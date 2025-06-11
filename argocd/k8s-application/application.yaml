@@ -7,7 +7,7 @@ spec:
     namespace: "*"
     server: https://kubernetes.default.svc
   project: k8s-application
-  sources:
+  source:
     repoURL: https://github.com/tatsukoni-pra/k8s-application-demo
     path: k8s/resources
     targetRevision: main
