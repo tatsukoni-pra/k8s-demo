@@ -6,5 +6,6 @@ resources:
   - argocd-app
   - external-secrets
   - k8s-application
+  - argocd-image-updater
 
 namespace: argocd

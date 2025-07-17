@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-image-updater
+spec:
+  template:
+    spec:
+      containers:
+        - name: argocd-image-updater
+          volumeMounts:
+            - name: ecr-login-script
+              mountPath: /app/scripts
+      volumes:
+        - name: ecr-login-script
+          configMap:
+            defaultMode: 0755
+            items:
+              - key: ecr-login.sh
+                path: ecr-login.sh
+            name: argocd-image-updater-config
+            optional: true
