@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: k8s-application
   annotations:
-    argocd-image-updater.argoproj.io/write-back-method: git:repocreds
+    argocd-image-updater.argoproj.io/write-back-method: argocd
     argocd-image-updater.argoproj.io/git-branch: main
     argocd-image-updater.argoproj.io/write-back-target: kustomization:../../infra/k8s-application
     argocd-image-updater.argoproj.io/image-list: nginx=083636136646.dkr.ecr.ap-northeast-1.amazonaws.com/k8s-application-nginx
