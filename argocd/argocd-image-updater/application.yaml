@@ -14,9 +14,9 @@ spec:
   - repoURL: 'https://github.com/tatsukoni-pra/k8s-demo'
     targetRevision: main
     ref: values
-  - repoURL: 'https://github.com/tatsukoni-pra/k8s-demo'
-    path: infra/argocd-image-updater
-    targetRevision: main
+  # - repoURL: 'https://github.com/tatsukoni-pra/k8s-demo'
+  #   path: infra/argocd-image-updater
+  #   targetRevision: main
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
