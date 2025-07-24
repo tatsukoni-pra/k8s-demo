@@ -1,7 +1,13 @@
+# Helm経由でインストール時には不要
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 namespace: argocd
 
 resources:
-- service-account.yaml
+- https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/stable/manifests/install.yaml
+
+patches:
+  - path: configmap.yaml
+  - path: deployment.yaml
+  - path: serviceaccount.yaml
