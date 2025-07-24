@@ -4,9 +4,4 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-- https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/stable/manifests/install.yaml
-
-patches:
-  - path: configmap.yaml
-  - path: deployment.yaml
-  - path: service-account.yaml
+- service-account.yaml
