@@ -24,10 +24,10 @@ authScripts:
       echo "AWS:$(aws ecr get-login-password --region $AWS_REGION)"
 
 serviceAccount:
-  create: false
-  # annotations:
-  #   eks.amazonaws.com/role-arn: arn:aws:iam::083636136646:role/argocd-image-updater
-  # name: "argocd-image-updater"
+  create: true
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::083636136646:role/argocd-image-updater
+  name: "argocd-image-updater"
 
 securityContext:
   readOnlyRootFilesystem: false
