@@ -6,7 +6,7 @@ spec:
   serviceRef:
     name: argocd-server
     port: 80
-  targetGroupARN: arn:aws:elasticloadbalancing:ap-northeast-1:083636136646:targetgroup/tg-argocd/0805cd9fc4783664
+  targetGroupARN: arn:aws:elasticloadbalancing:ap-northeast-1:083636136646:targetgroup/tg-argocd/a9e23145ddb9a846
   targetType: ip
   networking:
     ingress:
