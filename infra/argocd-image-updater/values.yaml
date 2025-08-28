@@ -10,8 +10,8 @@ config:
 
   registries:
   - name: ECR
-    api_url: https://083636136646.dkr.ecr.us-east-1.amazonaws.com
-    prefix: 083636136646.dkr.ecr.us-east-1.amazonaws.com
+    api_url: https://083636136646.dkr.ecr.ap-northeast-1.amazonaws.com
+    prefix: 083636136646.dkr.ecr.ap-northeast-1.amazonaws.com
     default: true
     ping: yes
     insecure: no
