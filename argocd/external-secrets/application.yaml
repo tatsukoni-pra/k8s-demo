@@ -7,7 +7,7 @@ spec:
   sources:
   - repoURL: 'https://charts.external-secrets.io'
     chart: external-secrets
-    targetRevision: 0.18.2
+    targetRevision: 0.19.2
     helm:
       parameters:
         - name: installCRDs
@@ -20,3 +20,6 @@ spec:
   destination:
     namespace: external-secrets
     server: https://kubernetes.default.svc
+  syncPolicy:
+    syncOptions:
+    - ServerSideApply=true
