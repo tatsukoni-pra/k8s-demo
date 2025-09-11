@@ -8,3 +8,5 @@ resources:
   - namespace.yaml
   - target_group_binding.yaml
   - service_account.yaml
+
+namespace: atlantis
