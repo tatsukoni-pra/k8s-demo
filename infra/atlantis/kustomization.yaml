@@ -15,3 +15,6 @@ configMapGenerator:
   - name: sample-config
     files:
       - ./config/sample.json
+  - name: sample2-config
+    files:
+      - ./config/sample2.json
