@@ -64,9 +64,8 @@ extraVolumeMounts:
     mountPath: /etc/atlantis/config/sample.json
     subPath: sample.json
 
-extraEnv:
-  - name: SAMPLE_CONFIG_PATH
-    value: /etc/atlantis/config/sample.json
+environment:
+  SAMPLE_JSON_PATH: /etc/atlantis/config/sample.json
 ##### Feat
 
 serviceAccount:
