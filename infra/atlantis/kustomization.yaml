@@ -10,3 +10,8 @@ resources:
   - service_account.yaml
 
 namespace: atlantis
+
+configMapGenerator:
+  - name: sample-config
+    files:
+      - ./config/sample.json
