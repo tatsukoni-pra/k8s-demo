@@ -50,6 +50,21 @@ repoConfig: ""
 #     prometheus:
 #       endpoint: /metrics
 
+##### Feat
+extraVolumes:
+  - name: sample-config
+    configMap:
+      name: sample-config
+      items:
+        - key: sample.json
+          path: sample.json
+
+extraVolumeMounts:
+  - name: sample-config
+    mountPath: /etc/atlantis/config/sample.json
+    subPath: sample.json
+##### Feat
+
 serviceAccount:
   create: false
   name: sa-atlantis
