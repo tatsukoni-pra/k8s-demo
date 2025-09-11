@@ -1,0 +1,17 @@
+apiVersion: elbv2.k8s.aws/v1beta1
+kind: TargetGroupBinding
+metadata:
+  name: atlantis-tgb
+spec:
+  serviceRef:
+    name: atlantis
+    port: 80
+  targetGroupARN: arn:aws:elasticloadbalancing:ap-northeast-1:083636136646:targetgroup/tg-atlantis/7bf42d51fd9bc2b9
+  targetType: ip
+  networking:
+    ingress:
+    - from:
+      - securityGroup:
+          groupID: sg-09404dd1f6df8c55a
+      ports:
+      - protocol: TCP

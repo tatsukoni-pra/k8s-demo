@@ -1,0 +1,81 @@
+atlantisUrl: "http://atlantis-demo.awsometatsukoni.com"
+
+orgAllowlist: "github.com/tatsukoni-pra/*"
+
+logLevel: "debug"
+
+github:
+  user: foo
+  token: bar
+  secret: baz
+
+image:
+  repository: ghcr.io/runatlantis/atlantis
+  tag: "v0.35.1"
+  pullPolicy: IfNotPresent
+
+# -- Override atlantis main configuration by config map,
+# ref: https://www.runatlantis.io/docs/using-slack-hooks.html#configuring-atlantis.
+# Check values.yaml for examples.
+config: ""
+# config: |
+#   ---
+#   webhooks:
+#     - event: apply
+#       workspace-regex: .*
+#       branch-regex: .*
+#       kind: slack
+#       channel: my-channel
+
+# -- Use Server Side Repo Config,
+# ref: https://www.runatlantis.io/docs/server-side-repo-config.html.
+# Check values.yaml for examples.
+repoConfig: ""
+# Example with default configuration:
+# repoConfig: |
+#   ---
+#   repos:
+#   - id: /.*/
+#     apply_requirements: []
+#     workflow: default
+#     allowed_overrides: []
+#     allow_custom_workflows: false
+#   workflows:
+#     default:
+#       plan:
+#         steps: [init, plan]
+#       apply:
+#         steps: [apply]
+#   metrics:
+#     prometheus:
+#       endpoint: /metrics
+
+serviceAccount:
+  create: false
+  name: sa-atlantis
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+
+test:
+  enabled: false
+
+resources:
+  requests:
+    memory: 1Gi
+    cpu: 100m
+  limits:
+    memory: 1Gi
+    cpu: 100m
+
+nodeSelector: {}
+
+tolerations: []
+
+volumeClaim:
+  dataStorage: 10Gi
+  storageClassName: "gp2"

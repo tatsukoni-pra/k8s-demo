@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: atlantis
+spec:
+  project: atlantis
+  sources:
+  - repoURL: 'https://runatlantis.github.io/helm-charts'
+    chart: atlantis
+    targetRevision: 5.18.2
+    helm:
+      valueFiles:
+      - $values/infra/atlantis/values.yaml
+  - repoURL: 'https://github.com/tatsukoni-pra/k8s-demo'
+    targetRevision: main
+    ref: values
+  - repoURL: 'https://github.com/tatsukoni-pra/k8s-demo'
+    path: infra/atlantis
+    targetRevision: main
+  destination:
+    namespace: atlantis
+    server: https://kubernetes.default.svc
