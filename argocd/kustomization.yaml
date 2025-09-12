@@ -7,6 +7,6 @@ resources:
   - external-secrets
   - k8s-application
   - argocd-image-updater
-  - atlantis
+  # - atlantis
 
 namespace: argocd
