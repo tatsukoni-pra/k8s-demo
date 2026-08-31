@@ -7,7 +7,7 @@ spec:
   sources:
   - repoURL: 'https://runatlantis.github.io/helm-charts'
     chart: atlantis
-    targetRevision: 5.18.2
+    targetRevision: 6.11.0
     helm:
       valueFiles:
       - $values/infra/atlantis/values.yaml
