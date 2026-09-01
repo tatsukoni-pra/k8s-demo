@@ -8,6 +8,7 @@ resources:
   - namespace.yaml
   - target_group_binding.yaml
   - service_account.yaml
+  - external-secret.yaml
 
 namespace: atlantis
 

@@ -1,72 +1,52 @@
-atlantisUrl: "http://atlantis-demo.awsometatsukoni.com"
+atlantisUrl: "https://atlantis.awsometatsukoni.com/"
 
 orgAllowlist: "github.com/tatsukoni-pra/*"
 
 logLevel: "debug"
 
-github:
-  user: foo
-  token: bar
-  secret: baz
+githubApp:
+  id: 4789286
+  installationId: 158140158
+  slug: atlantis-demo
+
+vcsSecretName: "atlantis-vcs-secret"
 
 image:
   repository: ghcr.io/runatlantis/atlantis
   tag: "v0.42.0"
   pullPolicy: IfNotPresent
 
-# -- Override atlantis main configuration by config map,
-# ref: https://www.runatlantis.io/docs/using-slack-hooks.html#configuring-atlantis.
-# Check values.yaml for examples.
-config: ""
-# config: |
-#   ---
-#   webhooks:
-#     - event: apply
-#       workspace-regex: .*
-#       branch-regex: .*
-#       kind: slack
-#       channel: my-channel
+config: |
+  ---
+  automerge: true
+  allow-fork-prs: false
+  disable-apply-all: false
+  hide-prev-plan-comments: true
+  enable-policy-checks: true
+  allow-commands: all
+  write-git-creds: true
+  emoji-reaction: eyes
 
-# -- Use Server Side Repo Config,
-# ref: https://www.runatlantis.io/docs/server-side-repo-config.html.
-# Check values.yaml for examples.
-repoConfig: ""
-# Example with default configuration:
-# repoConfig: |
-#   ---
-#   repos:
-#   - id: /.*/
-#     apply_requirements: []
-#     workflow: default
-#     allowed_overrides: []
-#     allow_custom_workflows: false
-#   workflows:
-#     default:
-#       plan:
-#         steps: [init, plan]
-#       apply:
-#         steps: [apply]
-#   metrics:
-#     prometheus:
-#       endpoint: /metrics
-
-##### Feat
-extraVolumes:
-  - name: sample-config
-    configMap:
-      name: sample-config
-      items:
-        - key: sample.json
-          path: sample.json
-
-extraVolumeMounts:
-  - name: sample-config
-    mountPath: /etc/atlantis/config/sample.json
-    subPath: sample.json
-
-environment:
-  SAMPLE_JSON_PATH: /etc/atlantis/config/sample.json
-##### Feat
+repoConfig: |
+  ---
+  repos:
+  - id: /.*/
+    apply_requirements: []
+    workflow: default
+    allowed_overrides: [workflow]
+    allow_custom_workflows: true
+  workflows:
+    default:
+      plan:
+        steps:
+          - init
+          - plan
+          - show
+      apply:
+        steps:
+          - run: |
+              echo "Execute Apply"
+          - apply
 
 serviceAccount:
   create: false
