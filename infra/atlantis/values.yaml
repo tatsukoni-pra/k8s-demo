@@ -7,7 +7,7 @@ logLevel: "debug"
 githubApp:
   id: "4789286"
   installationId: "158140158"
-  slug: atlantis-demo
+  slug: atlantis-tatsukoni-pra
 
 vcsSecretName: "atlantis-vcs-secret"
 
