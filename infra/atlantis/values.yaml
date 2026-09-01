@@ -5,8 +5,8 @@ orgAllowlist: "github.com/tatsukoni-pra/*"
 logLevel: "debug"
 
 githubApp:
-  id: 4789286
-  installationId: 158140158
+  id: "4789286"
+  installationId: "158140158"
   slug: atlantis-demo
 
 vcsSecretName: "atlantis-vcs-secret"
