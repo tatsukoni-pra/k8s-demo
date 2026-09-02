@@ -31,7 +31,7 @@ repoConfig: |
   ---
   repos:
   - id: /.*/
-    apply_requirements: []
+    apply_requirements: [mergeable]
     workflow: default
     allowed_overrides: [workflow]
     allow_custom_workflows: true
