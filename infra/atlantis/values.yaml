@@ -64,11 +64,11 @@ test:
 
 resources:
   requests:
-    memory: 1Gi
-    cpu: 100m
+    memory: 512Mi
+    cpu: 500m
   limits:
-    memory: 1Gi
-    cpu: 100m
+    memory: 2Gi
+    cpu: 1000m
 
 nodeSelector: {}
 
