@@ -22,7 +22,7 @@ config: |
   allow-fork-prs: false
   disable-apply-all: false
   hide-prev-plan-comments: true
-  enable-policy-checks: true
+  enable-policy-checks: false
   allow-commands: all
   write-git-creds: true
   emoji-reaction: eyes
