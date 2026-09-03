@@ -22,6 +22,8 @@ GitHub の Branch Protection Rules と Atlantis の `apply_requirements: [mergea
 | Status checks | `atlantis/plan` を追加 |
 | Require branches to be up to date before merging | 有効 |
 
+![Branch保護ルール設定画面](./images/image_2.png)
+
 > **注意**: 「Require branches to be up to date before merging」は、単独では有効にならない。この設定は「必須の status check が最新のコミット（main を取り込んだ状態）で通っているかどうか」で判定されるため、判定基準となる status check が最低1つ必要になる。
 
 ### 2. Atlantis の apply_requirements 設定
