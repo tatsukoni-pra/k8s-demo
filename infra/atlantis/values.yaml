@@ -26,6 +26,7 @@ config: |
   allow-commands: all
   write-git-creds: true
   emoji-reaction: eyes
+  gh-allow-mergeable-bypass-apply: true
 
 repoConfig: |
   ---
