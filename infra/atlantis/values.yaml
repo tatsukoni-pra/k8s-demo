@@ -16,18 +16,6 @@ image:
   tag: "v0.42.0"
   pullPolicy: IfNotPresent
 
-# config: |
-#   ---
-#   automerge: true
-#   allow-fork-prs: false
-#   disable-apply-all: false
-#   hide-prev-plan-comments: true
-#   enable-policy-checks: false
-#   allow-commands: all
-#   write-git-creds: true
-#   emoji-reaction: eyes
-#   gh-allow-mergeable-bypass-apply: true
-
 config: |
   ---
   automerge: true
@@ -38,32 +26,24 @@ config: |
   allow-commands: all
   write-git-creds: true
   emoji-reaction: eyes
+  gh-allow-mergeable-bypass-apply: true
 
-# repoConfig: |
+# config: |
 #   ---
-#   repos:
-#   - id: /.*/
-#     apply_requirements: [mergeable]
-#     workflow: default
-#     allowed_overrides: [workflow]
-#     allow_custom_workflows: true
-#   workflows:
-#     default:
-#       plan:
-#         steps:
-#           - init
-#           - plan
-#           - show
-#       apply:
-#         steps:
-#           - run: |
-#               echo "Execute Apply"
-#           - apply
+#   automerge: true
+#   allow-fork-prs: false
+#   disable-apply-all: false
+#   hide-prev-plan-comments: true
+#   enable-policy-checks: false
+#   allow-commands: all
+#   write-git-creds: true
+#   emoji-reaction: eyes
 
 repoConfig: |
   ---
   repos:
   - id: /.*/
+    apply_requirements: [mergeable]
     workflow: default
     allowed_overrides: [workflow]
     allow_custom_workflows: true
@@ -79,6 +59,26 @@ repoConfig: |
           - run: |
               echo "Execute Apply"
           - apply
+
+# repoConfig: |
+#   ---
+#   repos:
+#   - id: /.*/
+#     workflow: default
+#     allowed_overrides: [workflow]
+#     allow_custom_workflows: true
+#   workflows:
+#     default:
+#       plan:
+#         steps:
+#           - init
+#           - plan
+#           - show
+#       apply:
+#         steps:
+#           - run: |
+#               echo "Execute Apply"
+#           - apply
 
 serviceAccount:
   create: false
